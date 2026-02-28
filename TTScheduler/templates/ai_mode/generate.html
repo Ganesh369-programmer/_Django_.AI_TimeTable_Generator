@@ -1,0 +1,192 @@
+{% extends 'base1.html' %}
+{% block content %}
+
+<style>
+body{
+    background:#020617;
+    font-family:Arial;
+    color:white;
+}
+
+.container{
+    width:900px;
+    margin:auto;
+    margin-top:40px;
+}
+
+.card{
+    background:#020617;
+    border:1px solid cyan;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 0 20px cyan;
+}
+
+input,select{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    margin-bottom:15px;
+    background:#020617;
+    border:1px solid cyan;
+    color:white;
+    border-radius:8px;
+}
+
+button{
+    padding:12px;
+    background:cyan;
+    border:none;
+    color:black;
+    font-weight:bold;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.slider-container{
+    overflow:hidden;
+    width:100%;
+    margin-top:20px;
+}
+
+.slider{
+    display:flex;
+    transition:0.5s;
+}
+
+.form-slide{
+    min-width:100%;
+    padding:20px;
+}
+
+.nav-btn{
+    margin:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h2>How many Departments Timetable?</h2>
+
+<input type="number" id="deptCount" placeholder="Enter number">
+<button onclick="createForms()">Create Forms</button>
+
+<form method="POST" action="/ai_mode/timetable/" enctype="multipart/form-data">
+{% csrf_token %}
+
+<div class="slider-container">
+    <div class="slider" id="slider"></div>
+</div>
+
+<div style="text-align:center;">
+    <button type="button" class="nav-btn" onclick="prevSlide()">Prev</button>
+    <button type="button" class="nav-btn" onclick="nextSlide()">Next</button>
+</div>
+
+<button type="submit" style="width:100%;margin-top:20px;">
+🚀 Generate All Timetables
+</button>
+
+</form>
+
+</div>
+</div>
+
+<script>
+let currentSlide=0;
+
+function createForms(){
+    let count=document.getElementById("deptCount").value;
+    let slider=document.getElementById("slider");
+    slider.innerHTML="";
+    currentSlide=0;
+
+    for(let i=1;i<=count;i++){
+
+        let html=`
+        <div class="form-slide">
+            <h2>Department ${i}</h2>
+
+            <label>Department Name</label>
+            <input name="dept_name[]" placeholder="Computer">
+
+            <label>Semester</label>
+            <input name="semester[]" placeholder="SE">
+
+            {% include "ai_mode/form_template.html" %}
+        </div>
+        `;
+
+        slider.innerHTML+=html;
+    }
+}
+
+function updateSlider(){
+    document.getElementById("slider").style.transform=
+    `translateX(-${currentSlide*100}%)`;
+}
+
+function nextSlide(){
+    let total=document.querySelectorAll(".form-slide").length;
+    if(currentSlide<total-1){currentSlide++;updateSlider();}
+}
+
+function prevSlide(){
+    if(currentSlide>0){currentSlide--;updateSlider();}
+}
+</script>
+
+<!-- Excel to JSON Library -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+<script>
+// SUBJECT EXCEL → JSON textarea
+document.addEventListener("change", function(e){
+
+    // SUBJECT
+    if(e.target.classList.contains("subjectFile")){
+        let file=e.target.files[0];
+        let textarea=e.target.parentElement.querySelector(".subjectJson");
+
+        if(!file) return;
+
+        let reader=new FileReader();
+        reader.onload=function(evt){
+            let data=new Uint8Array(evt.target.result);
+            let workbook=XLSX.read(data,{type:"array"});
+            let sheet=workbook.Sheets[workbook.SheetNames[0]];
+            let json=XLSX.utils.sheet_to_json(sheet);
+
+            textarea.value=JSON.stringify(json,null,2);
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    // TEACHER
+    if(e.target.classList.contains("teacherFile")){
+        let file=e.target.files[0];
+        let textarea=e.target.parentElement.querySelector(".teacherJson");
+
+        if(!file) return;
+
+        let reader=new FileReader();
+        reader.onload=function(evt){
+            let data=new Uint8Array(evt.target.result);
+            let workbook=XLSX.read(data,{type:"array"});
+            let sheet=workbook.Sheets[workbook.SheetNames[0]];
+            let json=XLSX.utils.sheet_to_json(sheet);
+
+            textarea.value=JSON.stringify(json,null,2);
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+});
+</script>
+
+</body>
+{% endblock %}

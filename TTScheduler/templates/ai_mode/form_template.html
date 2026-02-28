@@ -1,0 +1,48 @@
+<hr>
+
+<h3>Working Days & Time</h3>
+
+<label>Working Days</label>
+<input name="working_days[]" placeholder="Mon-Fri">
+
+<label>Lecture Duration</label>
+<input name="lecture_duration[]" value="60">
+
+<label>Lab Duration</label>
+<input name="lab_duration[]" value="120">
+
+<label>Break</label>
+<input name="break_name[]" placeholder="Lunch">
+
+<hr>
+
+<h3>Subject Excel</h3>
+
+<input type="file" name="subject_excel[]" 
+       class="subjectFile"
+       accept=".xlsx,.xls">
+       
+<textarea name="subject_json[]" 
+          class="subjectJson"
+          placeholder="Subject JSON will appear here..."
+          style="width:100%;height:120px;margin-top:8px;"></textarea> <br>
+
+<h3>Teacher Excel</h3>
+<input type="file" name="teacher_excel[]" 
+       class="teacherFile"
+       accept=".xlsx,.xls">
+
+<textarea name="teacher_json[]" 
+          class="teacherJson"
+          placeholder="Teacher JSON will appear here..."
+          style="width:100%;height:120px;margin-top:8px;"></textarea>
+
+<hr>
+
+<h3>Rooms</h3>
+
+<label>Classrooms</label>
+<input name="classrooms[]" placeholder="101,102">
+
+<label>Labs</label>
+<input name="labs[]" placeholder="Lab1,Lab2">

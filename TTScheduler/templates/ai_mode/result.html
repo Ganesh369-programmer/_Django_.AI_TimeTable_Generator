@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="text-center mb-4">Your Smart Timetable</h2>
+
+<table class="table table-bordered text-center shadow">
+    <tr class="table-dark">
+        <th>Time</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+    </tr>
+
+    <tr>
+        <td>9-10</td>
+        <td>AI</td>
+        <td>CN</td>
+        <td>DBMS</td>
+        <td>TOC</td>
+        <td>AI</td>
+    </tr>
+
+    <tr>
+        <td>10-11</td>
+        <td>TOC</td>
+        <td>AI</td>
+        <td>CN</td>
+        <td>DBMS</td>
+        <td>Mini Project</td>
+    </tr>
+
+</table>
+
+<div class="text-center mt-4">
+    <button class="btn btn-success">Download PDF</button>
+</div>
+
+{% endblock %}
