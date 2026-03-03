@@ -1,48 +1,123 @@
-<hr>
+<div class="mt-5">
 
-<h3>Working Days & Time</h3>
+    <!-- Section 1: Academic Structure -->
+    <div class="section-card p-4 mb-4">
+        <h4 class="text-cyan mb-4"><i class="bi bi-calendar3"></i> 1. Academic Structure</h4>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <label class="form-label">Working Days (comma separated)</label>
+                <input name="working_days[]" class="form-control" placeholder="Mon,Tue,Wed,Thu,Fri">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Start Time</label>
+                <input type="time" name="start_time[]" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">End Time</label>
+                <input type="time" name="end_time[]" class="form-control">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Lecture Duration (min)</label>
+                <input type="number" name="lecture_duration[]" class="form-control" value="60">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Lab Duration (min)</label>
+                <input type="number" name="lab_duration[]" class="form-control" value="120">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Break Duration (min)</label>
+                <input type="number" name="break_duration[]" class="form-control" value="30">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Break Position</label>
+                <select name="break_position[]" class="form-select">
+                    <option value="fixed">Fixed Time</option>
+                    <option value="flexible">Flexible</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
-<label>Working Days</label>
-<input name="working_days[]" placeholder="Mon-Fri">
+    <!-- Section 2: Subjects -->
+    <div class="section-card p-4 mb-4">
+        <h4 class="text-cyan mb-4"><i class="bi bi-book"></i> 2. Subjects Data</h4>
+        <p class="text-light opacity-75 mb-3">Upload Excel: Subject, Type, Theory Hours, Lab Hours, Batches</p>
+        
+        <div class="file-upload mb-3" onclick="this.querySelector('input').click()">
+            <i class="bi bi-cloud-upload fs-1 text-cyan mb-3 d-block"></i>
+            <input type="file" name="subject_excel[]" class="subjectFile d-none" accept=".xlsx,.xls">
+            <small class="text-muted">Click or drag Excel file</small>
+        </div>
+        
+        <textarea name="subject_json[]" class="subjectJson form-control" rows="6"
+                  placeholder="Subject JSON will auto-appear here..."></textarea>
+    </div>
 
-<label>Lecture Duration</label>
-<input name="lecture_duration[]" value="60">
+    <!-- Section 3: Teachers -->
+    <div class="section-card p-4 mb-4">
+        <h4 class="text-cyan mb-4"><i class="bi bi-person-workspace"></i> 3. Teacher Constraints</h4>
+        <p class="text-light opacity-75 mb-3">Upload Excel: Teacher, Subject, Max Hours/Day, Max Hours/Week, Unavailable Slots</p>
+        
+        <div class="file-upload mb-3" onclick="this.querySelector('input').click()">
+            <i class="bi bi-cloud-upload fs-1 text-cyan mb-3 d-block"></i>
+            <input type="file" name="teacher_excel[]" class="teacherFile d-none" accept=".xlsx,.xls">
+            <small class="text-muted">Click or drag Excel file</small>
+        </div>
+        
+        <textarea name="teacher_json[]" class="teacherJson form-control" rows="6"
+                  placeholder="Teacher JSON will auto-appear here..."></textarea>
+    </div>
 
-<label>Lab Duration</label>
-<input name="lab_duration[]" value="120">
+    <!-- Section 4: Batch + Infrastructure -->
+    <div class="section-card p-4 mb-4">
+        <h4 class="text-cyan mb-4"><i class="bi bi-people"></i> 4. Batch & Infrastructure</h4>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <label class="form-label">Total Students</label>
+                <input type="number" name="total_students[]" class="form-control" placeholder="60">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Students per Batch</label>
+                <input type="number" name="students_per_batch[]" class="form-control" placeholder="20">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Total Batches</label>
+                <input type="number" name="total_batches[]" class="form-control" placeholder="3">
+            </div>
+            <div class="col-12">
+                <label class="form-label">Batch Names (optional)</label>
+                <input name="batch_names[]" class="form-control" placeholder="BatchA,BatchB,BatchC">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Lab Allocation Mode</label>
+                <select name="lab_allocation_mode[]" class="form-select">
+                    <option value="parallel">Parallel (Multiple Labs Same Time)</option>
+                    <option value="sequential">Sequential (Different Slots)</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Shared Rooms Across Departments?</label>
+                <select name="shared_rooms[]" class="form-select">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Total Classrooms</label>
+                <input type="number" name="total_classrooms[]" class="form-control" placeholder="3">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Total Labs</label>
+                <input type="number" name="total_labs[]" class="form-control" placeholder="2">
+            </div>
+        </div>
+    </div>
 
-<label>Break</label>
-<input name="break_name[]" placeholder="Lunch">
+    <!-- Section 5: Special Blocks -->
+    <div class="section-card p-4">
+        <h4 class="text-cyan mb-4"><i class="bi bi-star"></i> 5. Special Blocks</h4>
+        <label class="form-label">Mini Project (Day + Duration in hrs)</label>
+        <input name="mini_project[]" class="form-control" placeholder="Mon,3">
+    </div>
 
-<hr>
-
-<h3>Subject Excel</h3>
-
-<input type="file" name="subject_excel[]" 
-       class="subjectFile"
-       accept=".xlsx,.xls">
-       
-<textarea name="subject_json[]" 
-          class="subjectJson"
-          placeholder="Subject JSON will appear here..."
-          style="width:100%;height:120px;margin-top:8px;"></textarea> <br>
-
-<h3>Teacher Excel</h3>
-<input type="file" name="teacher_excel[]" 
-       class="teacherFile"
-       accept=".xlsx,.xls">
-
-<textarea name="teacher_json[]" 
-          class="teacherJson"
-          placeholder="Teacher JSON will appear here..."
-          style="width:100%;height:120px;margin-top:8px;"></textarea>
-
-<hr>
-
-<h3>Rooms</h3>
-
-<label>Classrooms</label>
-<input name="classrooms[]" placeholder="101,102">
-
-<label>Labs</label>
-<input name="labs[]" placeholder="Lab1,Lab2">
+</div>
