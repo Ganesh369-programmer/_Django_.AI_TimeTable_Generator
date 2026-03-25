@@ -1,0 +1,237 @@
+============================================================
+
+==============================
+DEPARTMENT 2
+==============================
+Department: computer 3rd year 
+Semester: 6th sem
+
+Working Days: Mon , Tue , Wed ,Thu , Fri
+Lecture Duration: 1 Hour
+Lab Duration: 2 Hour
+Break:  Minutes
+
+Classrooms: 304 , 322 , 323
+Labs: Lab:-319 , Lab-320 , Lab-318
+
+SUBJECT DATA:
+[
+  {
+    "Subject ": "AI",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "MC",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "SPCC",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "CC",
+    "Type": "Theory",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "IOT",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "CSS",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "AI Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "MC Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "SPCC Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "CC Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "CSS Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  }
+]
+
+TEACHER DATA:
+[
+  {
+    "No": 1,
+    "Teacher": "prof. Deshpande",
+    "Subject": "AI"
+  },
+  {
+    "No": 2,
+    "Teacher": "Prof. Tandale",
+    "Subject": "MC"
+  },
+  {
+    "No": 3,
+    "Teacher": "Prof. Chunamari",
+    "Subject": "CSS"
+  },
+  {
+    "No": 4,
+    "Teacher": "Prof. Dalal",
+    "Subject": "CC"
+  },
+  {
+    "No": 5,
+    "Teacher": "Prof. Jogdand",
+    "Subject": "SPCC"
+  }
+]
+
+ Academic Structure:
+Start Time: 09:30
+End Time: 04:00
+Break Duration: 30
+Break Position: fixed
+
+Infrastructure:
+Total Classrooms: 3
+Total Labs: 3
+Shared Rooms: yes
+
+Special Blocks:
+Mini Project: Mon , 2
+
+Batch System:
+Total Students: 77
+Students Per Batch: 26
+Total Batches: 3
+Batch Names: T1 , T2 , T3
+Lab Mode: parallel
+
+
+**HARD CONSTRAINTS (MUST NEVER BE VIOLATED):**
+
+1. **NO TEACHER CONFLICTS**: A teacher can teach only ONE class at a time
+   - Check: Teacher "Deshpande" cannot be in Room 319 AND Room 322 at the same time
+   - Example CONFLICT: Monday 9:30-10:30 - "Deshpande teaching AI in 322" AND "Deshpande teaching SPCC in 318" ❌
+
+2. **NO ROOM CONFLICTS**: A room can host only ONE class/lab at a time
+   - Check: Room 322 cannot have "TE-COMP Theory" AND "SE-COMP Lab" simultaneously in Between multiple Department
+   - Example CONFLICT: Monday 10:00-11:00 - "Room 322: AI Theory" AND "Room 322: MC Lab in between Department" ❌
+
+3. **NO CLASS CONFLICTS**: A class/batch cannot be in TWO places at the same time
+   - Check: "TE-COMP" students cannot attend AI lecture AND MC lab simultaneously
+   - For lab batches: T1, T2, T3 are DIFFERENT batches, so they CAN be scheduled together
+   - Example CONFLICT: "TE-COMP attending AI in Room 322" AND "TE-COMP Lab in Room 318" ❌
+   - Give different Time slotes for labs for differenet Department .
+
+4. **TIME SLOT INTEGRITY**: 
+   - Theory classes: exactly 1 hour (9:30-10:30, 10:30-11:30, etc.)
+   - Labs: exactly 2 hours (9:30-11:30, 11:30-1:30, 2:00-4:00)
+   - Break: 30 minutes (1:30-2:00)
+   - NO overlapping time slots
+
+### STRICT JSON OUTPUT FORMAT REQUIRED:
+                Follow this structure EXACTLY. 
+                - For Theory: {"time": "9.30-10.30", "subject": "Name", "class": "ShortCode", "room": "No"}
+                - For Miniproject: { "time": "9.30-11.30", "type": "Lab/Practical", "details": ["Mini Project-Staff-322-All"] }
+                - For Labs: {"time": "11.30-1.30", "type": "Lab/Practical", "details": ["SUB-TEACHER-ROOM-BATCH"]}
+                - For Breaks: {"time": "1.30-2.00", "type": "Break"}
+
+### This is Example
+{
+  "department_1": {
+    "name": "Computer 2nd Year",
+    "timetable": [
+      {
+        "day": "MON",
+        "schedule": [
+          {
+            "time": "9.30-10.30",
+            "subject": "AM-3",
+            "class": "SE-COMP",
+            "room": "321"
+          },
+          {
+            "time": "10.30-11.30",
+            "subject": "DSGT",
+            "class": "SE-COMP",
+            "room": "321"
+          },
+          {
+            "time": "11.30-1.30",
+            "type": "Lab/Practical",
+            "details": [
+              "AI Lab-Deshpande-319-T1",
+              "MC Lab-Tandale-320-T2",
+              "SPCC Lab-Jogdand-318-T3"
+            ]
+          },
+          {
+            "time": "1.30-2.00",
+            "type": "Break"
+          }
+        ]
+      },
+      {
+        "day": "TUE",
+        "schedule": [
+          {
+            "time": "9.30-10.30",
+            "subject": "CG",
+            "class": "SE-COMP",
+            "room": "321"
+          },
+          {
+            "time": "10.30-11.30",
+            "subject": "AM-3",
+            "class": "SE-COMP",
+            "room": "321"
+          }
+        ]
+      }
+    ]
+  },
+  "department_2": {
+    "name": "Computer 3rd Year",
+    "timetable": [
+      {
+        "day": "MON",
+        "schedule": [
+          {
+            "time": "9.30-11.30",
+            "type": "Lab/Practical",
+            "details": [
+              "Mini Project-Staff-322-All"
+            ]
+          },
+          {
+            "time": "11.30-12.30",
+            "subject": "AI",
+            "class": "TE-COMP",
+            "room": "322"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+Return STRICT JSON only in this format:
+
+============================================================

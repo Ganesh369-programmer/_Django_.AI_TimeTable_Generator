@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'SchedulerApp',
     'ai_mode',
+    'master_ai_mode',
 ]
 
 MIDDLEWARE = [
@@ -112,7 +113,8 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Login/Logout Path
 
 LOGIN_REDIRECT_URL = '/'

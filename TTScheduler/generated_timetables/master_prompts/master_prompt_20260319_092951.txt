@@ -1,0 +1,256 @@
+
+══════════════════════════════════════════════════════════════════════════════
+MASTER TIMETABLE GENERATION REQUEST
+══════════════════════════════════════════════════════════════════════════════
+
+College: Your Engineering College
+Academic Structure:
+- Working Days     : Mon,Tue,Wed,Thu,Fri
+- Daily Start Time : 09:30
+- Daily End Time   : 04:00
+- Lecture Duration : 1 Hours
+- Lab Duration     : 2 Hours
+- Break Duration   : 30 minutes
+- Break Position   : fixed
+
+Total Classes: 2
+Classes: SE, TE
+
+Batch Configuration:
+- Total Students     : 77
+- Students per Batch : 26
+- Total Batches      : 3
+- Lab Mode           : parallel
+
+
+
+══════════════════════════════════════════════════════════════════════════════
+CLASS-WISE DATA
+══════════════════════════════════════════════════════════════════════════════
+
+            CLASS 1: SE
+            ──────────────────────────────────────────────
+            SUBJECT DATA:
+            [
+  {
+    "Subject ": "DBMS",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "OS",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "MDM",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "BMD",
+    "Type": "Theory",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "CT",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "DT",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "MDM Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "DT Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "DBMS Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "OS Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "BMD Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  }
+]
+
+            TEACHER DATA:
+            [
+  {
+    "No": 1,
+    "Teacher": "prof. Dalal",
+    "Subject": "DBMS"
+  },
+  {
+    "No": 2,
+    "Teacher": "Prof. Sonule",
+    "Subject": "OS"
+  },
+  {
+    "No": 3,
+    "Teacher": "Prof. More",
+    "Subject": "MDM"
+  },
+  {
+    "No": 4,
+    "Teacher": "Prof. Patil",
+    "Subject": "BMD"
+  },
+  {
+    "No": 5,
+    "Teacher": "Prof. Bhamre",
+    "Subject": "CT"
+  },
+  {
+    "No": 6,
+    "Teacher": "Prof.Patil",
+    "Subject": "DT"
+  }
+]
+
+            Batch Name :
+            - Name :- S1 , S2 , S3
+
+            Special Blocks:
+            - Mini Project  : Thu,3
+
+            
+            CLASS 2: TE
+            ──────────────────────────────────────────────
+            SUBJECT DATA:
+            [
+  {
+    "Subject ": "AI",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "MC",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "SPCC",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "CC",
+    "Type": "Theory",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "IOT",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "CSS",
+    "Type": "Theory",
+    "Hours_per_week": 3
+  },
+  {
+    "Subject ": "AI Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "MC Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "SPCC Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "CC Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  },
+  {
+    "Subject ": "CSS Lab",
+    "Type": "Lab",
+    "Hours_per_week": 2
+  }
+]
+
+            TEACHER DATA:
+            [
+  {
+    "No": 1,
+    "Teacher": "prof. Deshpande",
+    "Subject": "AI"
+  },
+  {
+    "No": 2,
+    "Teacher": "Prof. Tandale",
+    "Subject": "MC"
+  },
+  {
+    "No": 3,
+    "Teacher": "Prof. Chunamari",
+    "Subject": "CSS"
+  },
+  {
+    "No": 4,
+    "Teacher": "Prof. Dalal",
+    "Subject": "CC"
+  },
+  {
+    "No": 5,
+    "Teacher": "Prof. Jogdand",
+    "Subject": "SPCC"
+  }
+]
+
+            Batch Name :
+            - Name :- S1 , S2 , S3
+
+            Special Blocks:
+            - Mini Project  : Thu,3
+
+            
+══════════════════════════════════════════════════════════════════════════════
+HARD CONSTRAINTS (MUST BE STRICTLY FOLLOWED)
+══════════════════════════════════════════════════════════════════════════════
+1. No teacher can teach two different classes at the same time
+2. No room can be used by two classes simultaneously
+3. No class can attend two subjects at the same time
+4. Lab batches (T1, T2, T3) can run in parallel but must respect room availability
+5. Break must be exactly at the specified time slot
+6. Mini Project must be scheduled as per input
+
+Return ONLY valid JSON in this exact format (no extra text, no markdown):
+
+{
+  "timetable": [
+    {
+      "day": "MON",
+      "classes": [
+        {
+          "class_name": "SE-A",
+          "schedule": {
+            "9.30-10.30": ["Subject", "Teacher", "Room"]
+          }
+        }
+      ]
+    }
+  ]
+}

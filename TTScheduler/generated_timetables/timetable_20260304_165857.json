@@ -1,0 +1,201 @@
+{
+    "department_1": {
+        "timetable": [
+            {
+                "day": "MON",
+                "schedule": [
+                    {
+                        "time": "9.30-11.30",
+                        "subject": "Mini Project",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "11.30-12.30",
+                        "subject": "AM-3",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "12.30-1.00",
+                        "type": "Break"
+                    },
+                    {
+                        "time": "1.00-3.00",
+                        "type": "Lab/Practical",
+                        "details": [
+                            "DLCA-Shinde-319-S1",
+                            "DS-Bansu-320-S2",
+                            "CG-Haral-318-S3"
+                        ]
+                    },
+                    {
+                        "time": "3.00-4.00",
+                        "subject": "DSGT",
+                        "class": "COM2Y",
+                        "room": "321"
+                    }
+                ]
+            },
+            {
+                "day": "TUE",
+                "schedule": [
+                    {
+                        "time": "9.30-11.30",
+                        "type": "Lab/Practical",
+                        "details": [
+                            "DS-Bansu-320-S1",
+                            "CG-Haral-318-S2",
+                            "SBL-Deshmukh-319-S3"
+                        ]
+                    },
+                    {
+                        "time": "11.30-12.30",
+                        "subject": "DS",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "12.30-1.00",
+                        "type": "Break"
+                    },
+                    {
+                        "time": "1.00-2.00",
+                        "subject": "DLCA",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "2.00-3.00",
+                        "subject": "AM-3",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "3.00-4.00",
+                        "subject": "CG",
+                        "class": "COM2Y",
+                        "room": "321"
+                    }
+                ]
+            },
+            {
+                "day": "WED",
+                "schedule": [
+                    {
+                        "time": "9.30-10.30",
+                        "subject": "AM-3",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "10.30-11.30",
+                        "subject": "DSGT",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "11.30-12.30",
+                        "subject": "DLCA",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "12.30-1.00",
+                        "type": "Break"
+                    },
+                    {
+                        "time": "1.00-3.00",
+                        "type": "Lab/Practical",
+                        "details": [
+                            "CG-Haral-318-S1",
+                            "SBL-Deshmukh-319-S2",
+                            "DLCA-Shinde-320-S3"
+                        ]
+                    },
+                    {
+                        "time": "3.00-4.00",
+                        "subject": "SBL",
+                        "class": "COM2Y",
+                        "room": "321"
+                    }
+                ]
+            },
+            {
+                "day": "THU",
+                "schedule": [
+                    {
+                        "time": "9.30-11.30",
+                        "type": "Lab/Practical",
+                        "details": [
+                            "SBL-Deshmukh-319-S1",
+                            "DLCA-Shinde-320-S2",
+                            "DS-Bansu-318-S3"
+                        ]
+                    },
+                    {
+                        "time": "11.30-12.30",
+                        "subject": "DS",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "12.30-1.00",
+                        "type": "Break"
+                    },
+                    {
+                        "time": "1.00-2.00",
+                        "subject": "CG",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "2.00-3.00",
+                        "subject": "AM-3",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "3.00-4.00",
+                        "subject": "DSGT",
+                        "class": "COM2Y",
+                        "room": "321"
+                    }
+                ]
+            },
+            {
+                "day": "FRI",
+                "schedule": [
+                    {
+                        "time": "9.30-10.30",
+                        "subject": "DLCA",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "10.30-11.30",
+                        "subject": "DS",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "11.30-12.30",
+                        "subject": "CG",
+                        "class": "COM2Y",
+                        "room": "321"
+                    },
+                    {
+                        "time": "12.30-1.00",
+                        "type": "Break"
+                    },
+                    {
+                        "time": "1.00-2.00",
+                        "subject": "SBL",
+                        "class": "COM2Y",
+                        "room": "321"
+                    }
+                ]
+            }
+        ]
+    }
+}

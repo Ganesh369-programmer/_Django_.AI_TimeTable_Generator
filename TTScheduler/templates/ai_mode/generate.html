@@ -30,7 +30,7 @@
                 </div>
 
                 <!-- Form -->
-                <form method="POST" action="/ai_mode/timetable/" enctype="multipart/form-data" id="mainForm">
+                <form method="POST" action="{% url 'timetable' %}" enctype="multipart/form-data" id="mainForm">
                     {% csrf_token %}
 
                     <!-- Slider -->
@@ -70,6 +70,16 @@
 </style>
 
 <script>
+    
+   document.getElementById("mainForm").addEventListener("submit", function(e) {
+    // Don't preventDefault() anymore – we want normal submit
+    const submitBtn = this.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Generating Timetables... Please wait';
+}); 
+
+
+
 let currentSlide = 0;
 
 function createForms() {
@@ -143,35 +153,52 @@ function prevSlide() {
 
 // Keep your original Excel → JSON script (unchanged)
 document.addEventListener("change", function(e) {
+
+    // SUBJECT EXCEL
     if (e.target.classList.contains("subjectFile")) {
+
         let file = e.target.files[0];
-        let textarea = e.target.parentElement.querySelector(".subjectJson");
         if (!file) return;
+
+        // find textarea inside same department slide
+        let slide = e.target.closest(".form-slide");
+        let textarea = slide.querySelector(".subjectJson");
+
         let reader = new FileReader();
         reader.onload = function(evt) {
             let data = new Uint8Array(evt.target.result);
-            let workbook = XLSX.read(data, {type: "array"});
+            let workbook = XLSX.read(data, { type: "array" });
             let sheet = workbook.Sheets[workbook.SheetNames[0]];
             let json = XLSX.utils.sheet_to_json(sheet);
+
             textarea.value = JSON.stringify(json, null, 2);
         };
+
         reader.readAsArrayBuffer(file);
     }
-    
+
+    // TEACHER EXCEL
     if (e.target.classList.contains("teacherFile")) {
+
         let file = e.target.files[0];
-        let textarea = e.target.parentElement.querySelector(".teacherJson");
         if (!file) return;
+
+        let slide = e.target.closest(".form-slide");
+        let textarea = slide.querySelector(".teacherJson");
+
         let reader = new FileReader();
         reader.onload = function(evt) {
             let data = new Uint8Array(evt.target.result);
-            let workbook = XLSX.read(data, {type: "array"});
+            let workbook = XLSX.read(data, { type: "array" });
             let sheet = workbook.Sheets[workbook.SheetNames[0]];
             let json = XLSX.utils.sheet_to_json(sheet);
+
             textarea.value = JSON.stringify(json, null, 2);
         };
+
         reader.readAsArrayBuffer(file);
     }
+
 });
 </script>
 

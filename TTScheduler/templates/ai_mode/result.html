@@ -1,41 +1,327 @@
-{% extends 'base.html' %}
-
+{% extends 'base1.html' %}
 {% block content %}
 
-<h2 class="text-center mb-4">Your Smart Timetable</h2>
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold neon-text">📅 Generated Timetables</h2>
+        {% if filename %}
+            <p class="text-muted">From file: <strong>{{ filename }}</strong></p>
+        {% endif %}
+    </div>
 
-<table class="table table-bordered text-center shadow">
-    <tr class="table-dark">
-        <th>Time</th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-    </tr>
+    {% if error %}
+        <div class="alert alert-danger text-center">{{ error }}</div>
+    {% endif %}
 
-    <tr>
-        <td>9-10</td>
-        <td>AI</td>
-        <td>CN</td>
-        <td>DBMS</td>
-        <td>TOC</td>
-        <td>AI</td>
-    </tr>
+    {% if departments %}
+        {% for dept in departments %}
+            <div class="card-main shadow-lg mb-5 p-4">
+                <h4 class="text-cyan mb-4">
+                    <i class="bi bi-building"></i> {{ dept.name }}
+                </h4>
 
-    <tr>
-        <td>10-11</td>
-        <td>TOC</td>
-        <td>AI</td>
-        <td>CN</td>
-        <td>DBMS</td>
-        <td>Mini Project</td>
-    </tr>
+                {% comment %} <div class="table-responsive">
+                    <table class="table table-bordered timetable-grid text-center" style="border-collapse: collapse; font-size: 0.95rem;">
+                        <thead class="table-dark">
+                            <tr>
+                                <th rowspan="2" style="width: 60px; vertical-align: middle;">DAY</th>
+                                <th rowspan="2" style="width: 90px; vertical-align: middle;">TYPE</th>
+                                {% for slot in dept.raw_data.timetable.0.schedule %}
+                                    <th colspan="1" style="min-width: 140px;">
+                                        {{ slot.time }}
+                                    </th>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                {% for slot in dept.raw_data.timetable.0.schedule %}
+                                    <th style="font-weight: normal; font-size: 0.85rem;">
+                                        {% if slot.type == "Lab/Practical" %}Lab{% else %}Theory{% endif %}
+                                    </th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for day_entry in dept.raw_data.timetable %}
+                                <tr>
+                                    <td rowspan="3" class="fw-bold bg-secondary text-white" style="vertical-align: middle;">
+                                        {{ day_entry.day }}
+                                    </td>
 
-</table>
+                                    <!-- SUBJECT row -->
+                                    <td class="bg-dark-subtle fw-bold">SUBJECT</td>
+                                    {% for slot in day_entry.schedule %}
+                                        <td {% if slot.type == "Break" %}class="bg-warning text-dark"{% endif %}>
+                                            {% if slot.type == "Break" %}
+                                                BREAK
+                                            {% elif slot.type == "Lab/Practical" %}
+                                                {% if slot.details|length == 1 %}
+                                                    {{ slot.details.0 }}
+                                                {% else %}
+                                                    Multiple Labs
+                                                {% endif %}
+                                            {% else %}
+                                                {{ slot.subject }}
+                                            {% endif %}
+                                        </td>
+                                    {% endfor %}
+                                </tr>
 
-<div class="text-center mt-4">
-    <button class="btn btn-success">Download PDF</button>
+                                <!-- CLASS row -->
+                                <tr>
+                                    <td class="bg-dark-subtle fw-bold">CLASS</td>
+                                    {% for slot in day_entry.schedule %}
+                                        <td {% if slot.type == "Break" %}class="bg-warning text-dark"{% endif %}>
+                                            {% if slot.type == "Break" %}-{% elif slot.class %}{{ slot.class }}{% else %}-{% endif %}
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+
+                                <!-- ROOM row -->
+                                <tr class="border-bottom border-secondary">
+                                    <td class="bg-dark-subtle fw-bold">ROOM</td>
+                                    {% for slot in day_entry.schedule %}
+                                        <td {% if slot.type == "Break" %}class="bg-warning text-dark"{% endif %}>
+                                            {% if slot.type == "Break" %}-{% elif slot.room %}{{ slot.room }}{% else %}-{% endif %}
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div> {% endcomment %}
+
+                <!-- JSON + Buttons Section -->
+                <div class="mt-4">
+                    <form id="excelForm-{{ forloop.counter }}" action="{% url 'json_to_excel' %}" method="post" class="mx-1 mx-md-4">
+                        {% csrf_token %}
+                        
+                        <input type="hidden" name="dept_name" value="{{ dept.name }}">
+
+                        <label class="form-label fw-bold">JSON Timetable</label>
+                        <div class="input-group mb-3">
+                            <textarea class="form-control font-monospace bg-dark text-light"
+                                    rows="14"
+                                    id="json_data_{{ forloop.counter }}"
+                                    name="json_data"
+                                    readonly>{{ dept.timetable_json }}</textarea>
+                            <button class="btn btn-outline-cyan" type="button" onclick="copyToClipboard(this)">
+                                <i class="bi bi-clipboard"></i> Copy
+                            </button>
+                        </div>
+
+                        <!-- Convert to Excel Button -->
+                        <button class="btn btn-neon w-100 mb-2" type="submit">
+                            <i class="bi bi-file-earmark-excel-fill"></i> Convert to Excel
+                        </button>
+
+                        <!-- Preview Button -->
+                        <button class="btn btn-info w-100 mb-2" type="button" onclick="previewExcel({{ forloop.counter }}, '{{ dept.name }}')">
+                            <i class="bi bi-eye-fill"></i> Preview Excel
+                        </button>
+
+                        <!-- Loading Spinner (hidden by default) -->
+                        <div id="preview-loading-{{ forloop.counter }}" class="text-center mt-2" style="display: none;">
+                            <div class="spinner-border text-info" role="status">
+                                <span class="visually-hidden">Loading preview...</span>
+                            </div>
+                            <p class="text-muted mt-2">Generating preview...</p>
+                        </div>
+
+                        <!-- Preview Area -->
+                        <div id="preview-area-{{ forloop.counter }}" class="mt-3"></div>
+
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="text-center mt-5">
+            <a href="{% url 'generate' %}" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-arrow-left"></i> Generate New Timetable
+            </a>
+        </div>
+
+    {% else %}
+        <div class="alert alert-info text-center">
+            No timetable data available.
+        </div>
+    {% endif %}
 </div>
+
+<script>
+// Copy to clipboard function
+function copyToClipboard(button) {
+    const textarea = button.closest('.input-group').querySelector('textarea');
+    textarea.select();
+    document.execCommand('copy');
+    
+    const originalText = button.innerHTML;
+    button.innerHTML = '<i class="bi bi-check"></i> Copied!';
+    setTimeout(() => {
+        button.innerHTML = originalText;
+    }, 2000);
+}
+
+// Preview Excel function
+function previewExcel(index, deptName) {
+    const jsonData = document.getElementById('json_data_' + index).value;
+    const previewArea = document.getElementById('preview-area-' + index);
+    const loadingSpinner = document.getElementById('preview-loading-' + index);
+    
+    // Show loading
+    loadingSpinner.style.display = 'block';
+    previewArea.innerHTML = '';
+    
+    // Create form data
+    const formData = new FormData();
+    formData.append('json_data', jsonData);
+    formData.append('dept_name', deptName);
+    formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+    
+    // Send AJAX request
+    fetch('{% url "preview_excel" %}', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        loadingSpinner.style.display = 'none';
+        
+        if (data.success) {
+            previewArea.innerHTML = `
+                <div class="alert alert-success">
+                    <i class="bi bi-check-circle"></i> Preview Generated for <strong>${data.dept_name}</strong>
+                </div>
+                ${data.html}
+            `;
+        } else {
+            previewArea.innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="bi bi-x-circle"></i> Error: ${data.error}
+                </div>
+            `;
+        }
+    })
+    .catch(error => {
+        loadingSpinner.style.display = 'none';
+        previewArea.innerHTML = `
+            <div class="alert alert-danger">
+                <i class="bi bi-x-circle"></i> Network Error: ${error.message}
+            </div>
+        `;
+        console.error('Preview error:', error);
+    });
+}
+</script>
+
+<style>
+/* Original timetable grid styling */
+.timetable-grid th, .timetable-grid td {
+    border: 1px solid #444 !important;
+    padding: 8px 6px;
+    vertical-align: middle;
+}
+.timetable-grid .bg-dark-subtle {
+    background-color: #2c3e50 !important;
+    color: #e0e0e0;
+}
+.timetable-grid tr:last-child {
+    border-bottom: 2px solid #555;
+}
+
+tr {
+border-bottom: 1pt solid black;
+}   
+
+/* Excel Preview Styling - Enhanced */
+.excel-preview-table {
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    margin: 0 auto;
+    width: 100%;
+    border: 2px solid #2c3e50;
+}
+
+.excel-preview-table td {
+    border: 1px solid #000000 !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.excel-preview-table tr:hover td {
+    background-color: #f1f3f5 !important;
+    
+}
+
+/* Scrollbar styling for preview area */
+.table-responsive::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Button Styling */
+.btn-info {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-info:hover {
+    background: linear-gradient(135deg, #138496 0%, #117a8b 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(23, 162, 184, 0.4);
+    color: white;
+}
+
+.btn-neon {
+    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    border: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+    background: linear-gradient(135deg, #0099cc 0%, #007399 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+    color: white;
+}
+
+/* Alert box styling */
+.alert {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Loading spinner container */
+#preview-loading-1, #preview-loading-2, #preview-loading-3 {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Preview area container */
+[id^="preview-area-"] {
+    border-radius: 8px;
+    overflow: hidden;
+}
+</style>
 
 {% endblock %}

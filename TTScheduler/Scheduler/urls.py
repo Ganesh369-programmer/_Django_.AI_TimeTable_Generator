@@ -18,6 +18,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', include('SchedulerApp.urls')),
     path('ai_mode/', include('ai_mode.urls')), 
+    path('master_ai/' , include('master_ai_mode.urls')),
+    
 ]
 
 handler404 = 'SchedulerApp.views.error_404'

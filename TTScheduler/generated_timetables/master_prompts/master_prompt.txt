@@ -1,0 +1,803 @@
+
+══════════════════════════════════════════════════════════════════════════════
+MASTER TIMETABLE GENERATION REQUEST
+══════════════════════════════════════════════════════════════════════════════
+ 
+College: Your Engineering College
+Academic Structure:
+- Working Days     : Mon,Tue,Wed,Thu,Fri
+- Daily Start Time : 09:30
+- Daily End Time   : 04:00
+- Lecture Duration : 1 Hours
+- Lab Duration     : 2 Hours
+- Break Duration   : 30 minutes
+- Break Position   : fixed
+ 
+Total Classes: 3
+Classes: SE, TE, BE
+ 
+Batch Configuration:
+- Total Students     : 77
+- Students per Batch : 26
+- Total Batches      : 3
+- Lab Mode           : parallel
+- Classrooms: ['304 , 322 , 323']
+- Labs: ['Lab:-319 , Lab-320 , Lab-321 , Lab-325 , Lab-326']
+ 
+══════════════════════════════════════════════════════════════════════════════
+CLASS-WISE DATA
+══════════════════════════════════════════════════════════════════════════════
+
+CLASS 1: SE
+──────────────────────────────────────────────
+SUBJECT DATA:
+[
+
+  {
+
+    "Subject ": "DBMS",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "OS",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "MDM",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "BMD",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 2
+
+  },
+
+  {
+
+    "Subject ": "CT",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "DT",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "MDM Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  },
+
+  {
+
+    "Subject ": "DT Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  },
+
+  {
+
+    "Subject ": "DBMS Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  },
+
+  {
+
+    "Subject ": "OS Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  },
+
+  {
+
+    "Subject ": "BMD Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  }
+
+]
+ 
+TEACHER DATA:
+[
+
+  {
+
+    "No": 1,
+
+    "Teacher": "prof. M.A Dalal",
+
+    "Techer(shortname)": "MD",
+
+    "Subject": "DBMS"
+
+  },
+
+  {
+
+    "No": 2,
+
+    "Teacher": "Prof. A.R Sonule",
+
+    "Techer(shortname)": "ARS",
+
+    "Subject": "OS"
+
+  },
+
+  {
+
+    "No": 3,
+
+    "Teacher": "Prof. K. L More",
+
+    "Techer(shortname)": "KLM",
+
+    "Subject": "MDM"
+
+  },
+
+  {
+
+    "No": 4,
+
+    "Teacher": "Prof. B.R Patil",
+
+    "Techer(shortname)": "BRP",
+
+    "Subject": "BMD"
+
+  },
+
+  {
+
+    "No": 5,
+
+    "Teacher": "Prof. V.A Bhamre",
+
+    "Techer(shortname)": "VAB",
+
+    "Subject": "CT"
+
+  },
+
+  {
+
+    "No": 6,
+
+    "Teacher": "Prof.B.R Patil",
+
+    "Techer(shortname)": "BRP",
+
+    "Subject": "DT"
+
+  }
+
+]
+ 
+Batch Names : S1 , S2 , S3
+ 
+Special Blocks:
+- Mini Project : Tue , 2 Hours
+ 
+
+CLASS 2: TE
+──────────────────────────────────────────────
+SUBJECT DATA:
+[
+
+  {
+
+    "Subject ": "AI",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "MC",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "SPCC",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "CC",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 2
+
+  },
+
+  {
+
+    "Subject ": "IOT",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "CSS",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "AI Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  },
+
+  {
+
+    "Subject ": "MC Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  },
+
+  {
+
+    "Subject ": "SPCC Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  },
+
+  {
+
+    "Subject ": "CC Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  },
+
+  {
+
+    "Subject ": "CSS Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  }
+
+]
+ 
+TEACHER DATA:
+[
+
+  {
+
+    "No": 1,
+
+    "Teacher": "prof. M.M Deshpande",
+
+    "Teacher(Shortname)": "MMD",
+
+    "Subject": "AI"
+
+  },
+
+  {
+
+    "No": 2,
+
+    "Teacher": "Prof. S.V Tandale",
+
+    "Teacher(Shortname)": "SVT",
+
+    "Subject": "MC"
+
+  },
+
+  {
+
+    "No": 3,
+
+    "Teacher": "Prof. S.R Chunamari",
+
+    "Teacher(Shortname)": "SRC",
+
+    "Subject": "CSS"
+
+  },
+
+  {
+
+    "No": 4,
+
+    "Teacher": "Prof. M.A Dalal",
+
+    "Teacher(Shortname)": "MD",
+
+    "Subject": "CC"
+
+  },
+
+  {
+
+    "No": 5,
+
+    "Teacher": "Prof. P.S Jogdand",
+
+    "Teacher(Shortname)": "PSJ",
+
+    "Subject": "SPCC"
+
+  },
+
+  {
+
+    "No": 6,
+
+    "Teacher": "Prof.P.S Shekhar",
+
+    "Teacher(Shortname)": "PSS",
+
+    "Subject": "IOT"
+
+  }
+
+]
+ 
+Batch Names : T1 , T2 , T3
+ 
+Special Blocks:
+- Mini Project : Mon , 2 Hours
+ 
+
+CLASS 3: BE
+──────────────────────────────────────────────
+SUBJECT DATA:
+[
+
+  {
+
+    "Subject ": "PM",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "SMA",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "ADS",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 3
+
+  },
+
+  {
+
+    "Subject ": "DC",
+
+    "Type": "Theory",
+
+    "Lecture_Hours_per_week": 2
+
+  },
+
+  {
+
+    "Subject ": "SMA Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  },
+
+  {
+
+    "Subject ": "ADS Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  },
+
+  {
+
+    "Subject ": "DC Lab",
+
+    "Type": "Lab",
+
+    "Lecture_Hours_per_week": 6
+
+  }
+
+]
+ 
+TEACHER DATA:
+[
+
+  {
+
+    "No": 1,
+
+    "Teacher": "Prof. S.V Tandale",
+
+    "Teacher(Shortname)": "SVT",
+
+    "Subject": "PM"
+
+  },
+
+  {
+
+    "No": 2,
+
+    "Teacher": "Prof. S.R Chunamari",
+
+    "Teacher(Shortname)": "SRC",
+
+    "Subject": "SMA"
+
+  },
+
+  {
+
+    "No": 3,
+
+    "Teacher": "Prof. A.R Sonule",
+
+    "Teacher(Shortname)": "ARS",
+
+    "Subject": "ADS"
+
+  },
+
+  {
+
+    "No": 4,
+
+    "Teacher": "Prof. R.C Suryawanshi",
+
+    "Teacher(Shortname)": "RCS",
+
+    "Subject": "DC"
+
+  }
+
+]
+ 
+Batch Names : B1 , B2 , B3
+ 
+Special Blocks:
+- Mini Project : Fri , 4 Hours
+ 
+
+            ══════════════════════════════════════════════════════════════════════════════
+            LAB TIME SLOT ATTACHMENT 
+            ══════════════════════════════════════════════════════════════════════════════
+            - SE :- allocate all SE lab at 9:30 to 11:30
+            - TE :- allocate all TE lab at 11:30 to 1:30
+            - BE :- allocate all BE lab at 2:00 to 4:00
+
+            ══════════════════════════════════════════════════════════════════════════════
+            HARD CONSTRAINTS  (EVERY RULE MUST BE SATISFIED — ZERO EXCEPTIONS)
+            ══════════════════════════════════════════════════════════════════════════════
+            
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            RULE 1 — NO ROOM DOUBLE-BOOKING  (most critical)
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            On any given day, a physical room (e.g. 319, 320, 326) can be occupied by
+            AT MOST ONE batch/class during any time window.
+            
+            For lab slots the room number is embedded in the batch string:
+                Format:  SUBJECT-TEACHER-ROOM-BATCH   e.g. "DBMS-KLM-326-S1"
+                                                                        ^^^
+                                                                    room = 326
+            
+            Before assigning a room to a lab batch, check: is that room already used
+            by another class or batch at an overlapping time? If yes → use a different room.
+            
+            ❌ WRONG — both SE and TE use room 319 at 9:30-11:30 on WED:
+                SE  1_9.30-11.30  row1: "MDML-KLM-319-S1"   ← room 319
+                TE  1_9.30-10.30  row1: "IOT-NA-319-T1"      ← room 319 CLASH!
+            
+            ✅ CORRECT — rooms are distinct:
+                SE  1_9.30-11.30  row1: "MDML-KLM-319-S1"   ← room 319
+                TE  1_9.30-10.30  row1: "IOT-NA-321-T1"      ← room 321 ✓
+            
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            RULE 2 — NO TEACHER DOUBLE-BOOKING
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            A teacher can teach AT MOST ONE class or batch at any point in time across
+            all classes (SE, TE, BE) on a given day.
+            
+            For theory slots: row2 is the teacher code (e.g. "KLM", "ARS").
+            For lab slots:    teacher code is the 2nd segment of the batch string
+                            e.g. "DBMS-KLM-326-S1" → teacher is "KLM"
+            
+            Before assigning a teacher, check all other classes at the same time slot.
+            If that teacher is already scheduled elsewhere → use a different teacher.
+            
+            ❌ WRONG — teacher KLM is teaching both SE and TE at 10:30-11:30 on TUE:
+                SE  2_10.30-11.30  row2: "KLM"               ← KLM busy
+                TE  2_10.30-11.30  row1: "SPCCL-KLM-319-T1"  ← KLM CLASH!
+            
+            ✅ CORRECT — different teachers:
+                SE  2_10.30-11.30  row2: "KLM"
+                TE  2_10.30-11.30  row1: "SPCCL-PSJ-319-T1"  ← PSJ instead ✓
+            
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            RULE 3 — LAB BATCH ROOM ROTATION (stagger batches across classes)
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            When multiple classes have lab sessions at the same time, each batch from each
+            class must be placed in a DIFFERENT physical room.
+            
+            Each class has batches S1/S2/S3 (or T1/T2/T3 or B1/B2/B3).
+            If SE has a 3-batch lab at time T using rooms [319, 320, 321],
+            then TE's lab at the same time T must use a completely different set of rooms
+            (e.g. [322, 323, 325]) — there must be ZERO overlap.
+            
+            Lab scheduling rule:
+            • Divide available lab rooms into groups.
+            • Assign Group A to SE labs, Group B to TE labs, Group C to BE labs.
+            • Never assign a room from one group to a different class on the same day/slot.
+            
+            Example room groups (adjust to actual available rooms):
+            SE labs  → rooms: 318, 319, 320
+            TE labs  → rooms: 321, 322, 323
+            BE labs  → rooms: 325, 326, 327
+            
+            ❌ WRONG — SE and TE labs share room 319 at the same time:
+                SE  1_9.30-11.30  row1: "MDML-KLM-319-S1"    ← room 319
+                                row2: "DTL-BRP-320-S2"      ← room 320
+                                row3: "DBMSL-MD-321-S3"     ← room 321
+                TE  1_9.30-10.30  row1: "IOT-NA-319-T1"       ← room 319 CLASH!
+            
+            ✅ CORRECT — SE uses 318/319/320, TE uses 321/322/323:
+                SE  1_9.30-11.30  row1: "MDML-KLM-318-S1"    ← room 318
+                                row2: "DTL-BRP-319-S2"      ← room 319
+                                row3: "DBMSL-MD-320-S3"     ← room 320
+                TE  1_9.30-10.30  row1: "IOT-NA-321-T1"       ← room 321 ✓
+            
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            RULE 4 — NO CLASS CAN ATTEND TWO SUBJECTS SIMULTANEOUSLY
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            A single class (SE, TE, or BE as a whole) cannot have two different subjects
+            at the same time. Batch-split labs are the only exception — they are allowed
+            because the class is physically split into sub-groups (S1, S2, S3) each in a
+            different room.
+            
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            RULE 5 — MINI PROJECT AND LONG BLOCKS MUST CLEAR ROOM/TEACHER CONFLICTS
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            When a class has Mini Project or any multi-slot block spanning 2+ hours:
+            • The rooms used by that class during those hours must NOT appear in
+                any other class's schedule at the same time.
+            • If Mini Project uses a shared lab space, treat it as a reserved room block.
+            
+            Mini Project slot format — use a SINGLE key spanning the full duration:
+                "1_9.30-1.30": {"row1": "MINI PROJECT", "row2": "ALL", "row3": "304"}
+            DO NOT repeat the same block under multiple keys for the same class.
+            
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            RULE 6 — LAB FORMAT AND KEY NAMING
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            Lab batch strings MUST follow this exact format:
+                SUBJECT_ABBREV-TEACHER_CODE-ROOM_NUMBER-BATCH_ID
+                Example: "DBMS-KLM-326-S1"
+            
+            For a 2-hour lab spanning two time slots, use a SINGLE key with the full range:
+                "1_9.30-11.30": {"row1": "DBMS-KLM-318-S1",
+                                "row2": "OSL-ARS-319-S2",
+                                "row3": "BMDL-BRP-320-S3"}
+            DO NOT emit the same lab under two separate slot keys.
+
+            -You have to Give every subject lab to each batch(ex:-S1 , S2 , S3) at once , at different day Different Batch.
+            
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            RULE 7 — BREAK / RECESS MUST BE IDENTICAL ACROSS ALL CLASSES
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            Every class must have:   "RECESS": "RECESS"
+            at exactly the same time slot (1.30-2.00). No class may have a lecture or
+            lab scheduled during the recess window.
+            
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            VERIFICATION CHECKLIST — run this mentally before finalising JSON output
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            For every day, for every time slot:
+            □ List all rooms used across all classes → any duplicates? Fix them.
+            □ List all teachers used across all classes → any duplicates? Fix them.
+            □ Check lab rooms per class form non-overlapping sets.
+            □ Check no class has two entries for the same time window.
+            □ Check RECESS is present in every class on every day.
+            □ Check multi-hour blocks are expressed as ONE key, not multiple.
+            ══════════════════════════════════════════════════════════════════════════════
+HARD CONSTRAINTS (MUST BE STRICTLY FOLLOWED)
+══════════════════════════════════════════════════════════════════════════════
+1. No teacher can teach two different classes at the same time
+2. No room can be used by two classes simultaneously
+3. No class can attend two subjects at the same time
+4. Lab batches run in parallel but must respect room availability
+5. Break must be exactly at the specified time slot
+6. Mini Project must be scheduled as per input
+ 
+{
+  "timetable": [
+    {
+      "day": "MON",
+      "classes": [
+        {
+          "class_name": "SE",
+          "schedule": {
+            "9.30-10.30": ["Subject", "Teacher(Shortform)", "Room"]
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
+########### Structue Example #################
+{
+          "timetable": {
+            "slots": [
+              "1
+9.30-10.30", 
+              "2
+10.30-11.30", 
+              "3
+11.30-12.30", 
+              "4
+12.30-1.30", 
+              "RECESS
+1.30-2.00", 
+              "5
+2.00-3.00", 
+              "6
+3.00-4.00", 
+              
+            ],
+            "days": [
+              {
+                "day": "MON",
+                "classes": [
+                  {
+                    "class": "SE",
+                    "schedule": {
+                      "1_9.30-10.30":  {"row1": "DBMS", "row2": "MD",  "row3": "322"},
+                      "2_10.30-11.30": {"row1": "OS",   "row2": "ARS", "row3": "322"},
+                      "3_11.30-12.30": {"row1": "DBMS-KLM-326-S1", "row2": "OS-VAB-319-S2", "row3": "BMD-PSJ-320-S3"},
+                      "4_12.30-1.30":  {"row1": "DBMS-KLM-326-S1", "row2": "OS-VAB-319-S2", "row3": "BMD-PSJ-320-S3"},
+                      "RECESS": "RECESS",
+                      "5_2.00-3.00":   {"row1": "MDM",  "row2": "KLM", "row3": "322"}
+                    }
+                  },
+
+                  {
+                    "class": "TE",
+                    "schedule": {
+                      "1_9.30-10.30":  {"row1": "IoT", "row2": "PSS", "row3": "323"},
+                      "2_10.30-11.30": {"row1": "CC",  "row2": "MD",  "row3": "323"},
+                      "3_11.30-12.30": {"row1": "AI",  "row2": "MMD", "row3": "323"},
+                      "4_12.30-1.30":  {"row1": "SPCC","row2": "PSJ", "row3": "323"},
+                      "RECESS": "RECESS",
+                      "5_2.00-3.00":  {"row1": "SPCCL-PSJ-319-T1", "row2": "CSSL-SRC-325A-T2", "row3": "MCL-SVT-321-T3"},
+                      "6_3.00-4.00":  {"row1": "SPCCL-PSJ-319-T1", "row2": "CSSL-SRC-325A-T2", "row3": "MCL-SVT-321-T3"}
+                    }
+                  },
+                  {
+                    "class": "BE",
+                    "schedule": {
+                      "1_9.30-10.30":  {"row1": "PM",  "row2": "SVT", "row3": "304"},
+                      "2_10.30-11.30": {"row1": "SMA", "row2": "SRC", "row3": "304"},
+                      "3_11.30-12.30": {"row1": "ADS", "row2": "ARS", "row3": "304"},
+                      "4_12.30-1.30":  {"row1": "DC",  "row2": "RCS", "row3": "304"},
+                      "RECESS": "RECESS",
+                      "5_2.00-3.00":   {"row1": "DCL-RCS-325A-B1", "row2": "ADSL-ARS-326-B2", "row3": "SMAL-BRP-320-B3"},
+                      "6_3.00-4.00":   {"row1": "DCL-RCS-325A-B1", "row2": "ADSL-ARS-326-B2", "row3": "-"}
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+
+
+ 
+Return Only JSON code.
+
+        

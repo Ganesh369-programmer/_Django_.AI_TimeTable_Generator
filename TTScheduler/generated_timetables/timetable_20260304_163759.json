@@ -1,0 +1,268 @@
+{
+    "department_1": {
+        "name": "computer 2nd year",
+        "timetable": [
+            {
+                "day": "MON",
+                "schedule": [
+                    {
+                        "start_time": "09:30",
+                        "end_time": "11:30",
+                        "subject": "Mini Project",
+                        "type": "Practical",
+                        "teacher": "Co-ordinator",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "11:30",
+                        "end_time": "12:30",
+                        "subject": "AM-3",
+                        "type": "Theory",
+                        "teacher": "Prof. Patil",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "12:30",
+                        "end_time": "01:00",
+                        "subject": "Break",
+                        "type": "Break",
+                        "teacher": "-",
+                        "room": "-"
+                    },
+                    {
+                        "start_time": "01:00",
+                        "end_time": "03:00",
+                        "subject": "DS Lab / DLCA Lab / CG Lab",
+                        "type": "Lab",
+                        "teacher": "Prof. Bansu / Prof. Shinde / Prof. Haral",
+                        "room": "Lab-319 / Lab-320 / Lab-318",
+                        "batches": "S1 / S2 / S3"
+                    },
+                    {
+                        "start_time": "03:00",
+                        "end_time": "04:00",
+                        "subject": "DSGT",
+                        "type": "Theory",
+                        "teacher": "Prof. Wagmode",
+                        "room": "321"
+                    }
+                ]
+            },
+            {
+                "day": "TUE",
+                "schedule": [
+                    {
+                        "start_time": "09:30",
+                        "end_time": "10:30",
+                        "subject": "DLCA",
+                        "type": "Theory",
+                        "teacher": "Prof. Shinde",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "10:30",
+                        "end_time": "11:30",
+                        "subject": "DS",
+                        "type": "Theory",
+                        "teacher": "prof. Bansu",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "11:30",
+                        "end_time": "12:30",
+                        "subject": "CG",
+                        "type": "Theory",
+                        "teacher": "Prof. Haral",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "12:30",
+                        "end_time": "01:00",
+                        "subject": "Break",
+                        "type": "Break",
+                        "teacher": "-",
+                        "room": "-"
+                    },
+                    {
+                        "start_time": "01:00",
+                        "end_time": "03:00",
+                        "subject": "DLCA Lab / CG Lab / SBL Lab",
+                        "type": "Lab",
+                        "teacher": "Prof. Shinde / Prof. Haral / Prof.Deshmukh",
+                        "room": "Lab-320 / Lab-318 / Lab-319",
+                        "batches": "S1 / S2 / S3"
+                    },
+                    {
+                        "start_time": "03:00",
+                        "end_time": "04:00",
+                        "subject": "AM-3",
+                        "type": "Theory",
+                        "teacher": "Prof. Patil",
+                        "room": "321"
+                    }
+                ]
+            },
+            {
+                "day": "WED",
+                "schedule": [
+                    {
+                        "start_time": "09:30",
+                        "end_time": "10:30",
+                        "subject": "DSGT",
+                        "type": "Theory",
+                        "teacher": "Prof. Wagmode",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "10:30",
+                        "end_time": "11:30",
+                        "subject": "AM-3",
+                        "type": "Theory",
+                        "teacher": "Prof. Patil",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "11:30",
+                        "end_time": "12:30",
+                        "subject": "DLCA",
+                        "type": "Theory",
+                        "teacher": "Prof. Shinde",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "12:30",
+                        "end_time": "01:00",
+                        "subject": "Break",
+                        "type": "Break",
+                        "teacher": "-",
+                        "room": "-"
+                    },
+                    {
+                        "start_time": "01:00",
+                        "end_time": "03:00",
+                        "subject": "CG Lab / SBL Lab / DS Lab",
+                        "type": "Lab",
+                        "teacher": "Prof. Haral / Prof.Deshmukh / prof. Bansu",
+                        "room": "Lab-318 / Lab-319 / Lab-320",
+                        "batches": "S1 / S2 / S3"
+                    },
+                    {
+                        "start_time": "03:00",
+                        "end_time": "04:00",
+                        "subject": "DS",
+                        "type": "Theory",
+                        "teacher": "prof. Bansu",
+                        "room": "321"
+                    }
+                ]
+            },
+            {
+                "day": "THU",
+                "schedule": [
+                    {
+                        "start_time": "09:30",
+                        "end_time": "10:30",
+                        "subject": "SBL",
+                        "type": "Theory",
+                        "teacher": "Prof.Deshmukh",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "10:30",
+                        "end_time": "11:30",
+                        "subject": "CG",
+                        "type": "Theory",
+                        "teacher": "Prof. Haral",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "11:30",
+                        "end_time": "12:30",
+                        "subject": "DSGT",
+                        "type": "Theory",
+                        "teacher": "Prof. Wagmode",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "12:30",
+                        "end_time": "01:00",
+                        "subject": "Break",
+                        "type": "Break",
+                        "teacher": "-",
+                        "room": "-"
+                    },
+                    {
+                        "start_time": "01:00",
+                        "end_time": "03:00",
+                        "subject": "SBL Lab / DS Lab / DLCA Lab",
+                        "type": "Lab",
+                        "teacher": "Prof.Deshmukh / prof. Bansu / Prof. Shinde",
+                        "room": "Lab-319 / Lab-320 / Lab-318",
+                        "batches": "S1 / S2 / S3"
+                    },
+                    {
+                        "start_time": "03:00",
+                        "end_time": "04:00",
+                        "subject": "DLCA",
+                        "type": "Theory",
+                        "teacher": "Prof. Shinde",
+                        "room": "321"
+                    }
+                ]
+            },
+            {
+                "day": "FRI",
+                "schedule": [
+                    {
+                        "start_time": "09:30",
+                        "end_time": "10:30",
+                        "subject": "AM-3",
+                        "type": "Theory",
+                        "teacher": "Prof. Patil",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "10:30",
+                        "end_time": "11:30",
+                        "subject": "DS",
+                        "type": "Theory",
+                        "teacher": "prof. Bansu",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "11:30",
+                        "end_time": "12:30",
+                        "subject": "CG",
+                        "type": "Theory",
+                        "teacher": "Prof. Haral",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "12:30",
+                        "end_time": "01:00",
+                        "subject": "Break",
+                        "type": "Break",
+                        "teacher": "-",
+                        "room": "-"
+                    },
+                    {
+                        "start_time": "01:00",
+                        "end_time": "02:00",
+                        "subject": "SBL",
+                        "type": "Theory",
+                        "teacher": "Prof.Deshmukh",
+                        "room": "321"
+                    },
+                    {
+                        "start_time": "02:00",
+                        "end_time": "04:00",
+                        "subject": "Self Study / Remedial",
+                        "type": "Theory",
+                        "teacher": "Staff",
+                        "room": "321"
+                    }
+                ]
+            }
+        ]
+    }
+}

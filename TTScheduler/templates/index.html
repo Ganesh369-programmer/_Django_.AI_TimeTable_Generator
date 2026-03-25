@@ -21,7 +21,7 @@
             Add your university class details and generate Time Table.</p>
         </div>
         <div class="crdbtn">
-          <a href="{% url 'timetable' %}" id='genButton' class="btn" onclick='document.getElementById("loaderClass").style.display="inline-block"'>Generate Timetable</a>
+          <a href="{% url 'timetable1' %}" id='genButton' class="btn" onclick='document.getElementById("loaderClass").style.display="inline-block"'>Generate Timetable</a>
           {% if user.is_authenticated %}
           <div id="loaderClass" class="loaderClass">
             <span class="loaderClassValue">0</span>

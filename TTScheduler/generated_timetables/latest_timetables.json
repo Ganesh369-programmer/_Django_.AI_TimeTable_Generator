@@ -1,0 +1,428 @@
+{
+  "department_1": {
+    "name": "Computer 2nd Year",
+    "timetable": [
+      {
+        "day": "MON",
+        "schedule": [
+          {
+            "time": "9.30-10.30",
+            "subject": "DBMS",
+            "class": "SE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "10.30-11.30",
+            "subject": "OS",
+            "class": "SE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "11.30-1.30",
+            "type": "Lab/Practical",
+            "details": [
+              "MDM Lab-Prof. More-319-S1",
+              "DT Lab-Prof.Patil-320-S2",
+              "DBMS Lab-prof. Dalal-318-S3"
+            ]
+          },
+          {
+            "time": "1.30-2.00",
+            "type": "Break"
+          },
+          {
+            "time": "2.00-3.00",
+            "subject": "CT",
+            "class": "SE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "3.00-4.00",
+            "subject": "DT",
+            "class": "SE-COMP",
+            "room": "304"
+          }
+        ]
+      },
+      {
+        "day": "TUE",
+        "schedule": [
+          {
+            "time": "9.30-10.30",
+            "subject": "MDM",
+            "class": "SE-COMP",
+            "room": "322"
+          },
+          {
+            "time": "10.30-11.30",
+            "subject": "BMD",
+            "class": "SE-COMP",
+            "room": "322"
+          },
+          {
+            "time": "11.30-12.30",
+            "subject": "CT",
+            "class": "SE-COMP",
+            "room": "322"
+          },
+          {
+            "time": "12.30-1.30",
+            "subject": "DBMS",
+            "class": "SE-COMP",
+            "room": "322"
+          },
+          {
+            "time": "1.30-2.00",
+            "type": "Break"
+          },
+          {
+            "time": "2.00-4.00",
+            "type": "Lab/Practical",
+            "details": [
+              "BMD Lab-Prof. Patil-319-S1",
+              "OS Lab-Prof. Sonule-320-S2",
+              "MDM Lab-Prof. More-318-S3"
+            ]
+          }
+        ]
+      },
+      {
+        "day": "WED",
+        "schedule": [
+          {
+            "time": "9.30-10.30",
+            "subject": "OS",
+            "class": "SE-COMP",
+            "room": "323"
+          },
+          {
+            "time": "10.30-11.30",
+            "subject": "DT",
+            "class": "SE-COMP",
+            "room": "323"
+          },
+          {
+            "time": "11.30-1.30",
+            "type": "Lab/Practical",
+            "details": [
+              "DBMS Lab-prof. Dalal-319-S1",
+              "BMD Lab-Prof. Patil-320-S2",
+              "OS Lab-Prof. Sonule-318-S3"
+            ]
+          },
+          {
+            "time": "1.30-2.00",
+            "type": "Break"
+          },
+          {
+            "time": "2.00-3.00",
+            "subject": "MDM",
+            "class": "SE-COMP",
+            "room": "323"
+          },
+          {
+            "time": "3.00-4.00",
+            "subject": "CT",
+            "class": "SE-COMP",
+            "room": "323"
+          }
+        ]
+      },
+      {
+        "day": "THU",
+        "schedule": [
+          {
+            "time": "9.30-11.30",
+            "type": "Lab/Practical",
+            "details": [
+              "Mini Project-Prof. Bhamre-322-All"
+            ]
+          },
+          {
+            "time": "11.30-12.30",
+            "subject": "DBMS",
+            "class": "SE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "12.30-1.30",
+            "subject": "OS",
+            "class": "SE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "1.30-2.00",
+            "type": "Break"
+          },
+          {
+            "time": "2.00-3.00",
+            "subject": "BMD",
+            "class": "SE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "3.00-4.00",
+            "subject": "DT",
+            "class": "SE-COMP",
+            "room": "304"
+          }
+        ]
+      },
+      {
+        "day": "FRI",
+        "schedule": [
+          {
+            "time": "9.30-10.30",
+            "subject": "MDM",
+            "class": "SE-COMP",
+            "room": "322"
+          },
+          {
+            "time": "10.30-11.30",
+            "subject": "CT",
+            "class": "SE-COMP",
+            "room": "322"
+          },
+          {
+            "time": "11.30-12.30",
+            "subject": "DBMS",
+            "class": "SE-COMP",
+            "room": "322"
+          },
+          {
+            "time": "12.30-1.30",
+            "subject": "BMD",
+            "class": "SE-COMP",
+            "room": "322"
+          },
+          {
+            "time": "1.30-2.00",
+            "type": "Break"
+          },
+          {
+            "time": "2.00-4.00",
+            "type": "Lab/Practical",
+            "details": [
+              "DT Lab-Prof.Patil-319-S1",
+              "MDM Lab-Prof. More-320-S2",
+              "CT Lab-Prof. Bhamre-318-S3"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "department_2": {
+    "name": "Computer 3rd Year",
+    "timetable": [
+      {
+        "day": "MON",
+        "schedule": [
+          {
+            "time": "9.30-11.30",
+            "type": "Lab/Practical",
+            "details": [
+              "Mini Project-Prof. Jogdand-322-All"
+            ]
+          },
+          {
+            "time": "11.30-12.30",
+            "subject": "AI",
+            "class": "TE-COMP",
+            "room": "323"
+          },
+          {
+            "time": "12.30-1.30",
+            "subject": "MC",
+            "class": "TE-COMP",
+            "room": "323"
+          },
+          {
+            "time": "1.30-2.00",
+            "type": "Break"
+          },
+          {
+            "time": "2.00-3.00",
+            "subject": "SPCC",
+            "class": "TE-COMP",
+            "room": "323"
+          },
+          {
+            "time": "3.00-4.00",
+            "subject": "CSS",
+            "class": "TE-COMP",
+            "room": "323"
+          }
+        ]
+      },
+      {
+        "day": "TUE",
+        "schedule": [
+          {
+            "time": "9.30-10.30",
+            "subject": "IOT",
+            "class": "TE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "10.30-11.30",
+            "subject": "CC",
+            "class": "TE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "11.30-1.30",
+            "type": "Lab/Practical",
+            "details": [
+              "AI Lab-prof. Deshpande-319-T1",
+              "MC Lab-Prof. Tandale-320-T2",
+              "SPCC Lab-Prof. Jogdand-318-T3"
+            ]
+          },
+          {
+            "time": "1.30-2.00",
+            "type": "Break"
+          },
+          {
+            "time": "2.00-3.00",
+            "subject": "CSS",
+            "class": "TE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "3.00-4.00",
+            "subject": "AI",
+            "class": "TE-COMP",
+            "room": "304"
+          }
+        ]
+      },
+      {
+        "day": "WED",
+        "schedule": [
+          {
+            "time": "9.30-10.30",
+            "subject": "MC",
+            "class": "TE-COMP",
+            "room": "322"
+          },
+          {
+            "time": "10.30-11.30",
+            "subject": "SPCC",
+            "class": "TE-COMP",
+            "room": "322"
+          },
+          {
+            "time": "11.30-1.30",
+            "type": "Lab/Practical",
+            "details": [
+              "CC Lab-Prof. Dalal-319-T1",
+              "IOT Lab-Prof. Chunamari-320-T2",
+              "CSS Lab-Prof. Chunamari-318-T3"
+            ]
+          },
+          {
+            "time": "1.30-2.00",
+            "type": "Break"
+          },
+          {
+            "time": "2.00-3.00",
+            "subject": "IOT",
+            "class": "TE-COMP",
+            "room": "322"
+          },
+          {
+            "time": "3.00-4.00",
+            "subject": "CC",
+            "class": "TE-COMP",
+            "room": "322"
+          }
+        ]
+      },
+      {
+        "day": "THU",
+        "schedule": [
+          {
+            "time": "9.30-10.30",
+            "subject": "CSS",
+            "class": "TE-COMP",
+            "room": "323"
+          },
+          {
+            "time": "10.30-11.30",
+            "subject": "AI",
+            "class": "TE-COMP",
+            "room": "323"
+          },
+          {
+            "time": "11.30-12.30",
+            "subject": "MC",
+            "class": "TE-COMP",
+            "room": "323"
+          },
+          {
+            "time": "12.30-1.30",
+            "subject": "SPCC",
+            "class": "TE-COMP",
+            "room": "323"
+          },
+          {
+            "time": "1.30-2.00",
+            "type": "Break"
+          },
+          {
+            "time": "2.00-4.00",
+            "type": "Lab/Practical",
+            "details": [
+              "IOT Lab-Prof. Chunamari-319-T1",
+              "CSS Lab-Prof. Chunamari-320-T2",
+              "AI Lab-prof. Deshpande-318-T3"
+            ]
+          }
+        ]
+      },
+      {
+        "day": "FRI",
+        "schedule": [
+          {
+            "time": "9.30-10.30",
+            "subject": "IOT",
+            "class": "TE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "10.30-11.30",
+            "subject": "CC",
+            "class": "TE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "11.30-1.30",
+            "type": "Lab/Practical",
+            "details": [
+              "MC Lab-Prof. Tandale-319-T1",
+              "SPCC Lab-Prof. Jogdand-320-T2",
+              "CC Lab-Prof. Dalal-318-T3"
+            ]
+          },
+          {
+            "time": "1.30-2.00",
+            "type": "Break"
+          },
+          {
+            "time": "2.00-3.00",
+            "subject": "CSS",
+            "class": "TE-COMP",
+            "room": "304"
+          },
+          {
+            "time": "3.00-4.00",
+            "subject": "AI",
+            "class": "TE-COMP",
+            "room": "304"
+          }
+        ]
+      }
+    ]
+  }
+}

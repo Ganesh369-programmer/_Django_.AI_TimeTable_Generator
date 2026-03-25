@@ -1,0 +1,523 @@
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Master Timetable Input – ClassIQ</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+ <style>
+
+/* ===== BODY ===== */
+body {
+  background: radial-gradient(circle at 10% 20%, rgba(88,166,255,0.15), transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(46,160,67,0.12), transparent 40%),
+              linear-gradient(135deg, #0f172a, #020617);
+  color: #e6edf3;
+  font-family: 'Inter', sans-serif;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1100px;
+}
+
+/* ===== HEADER ===== */
+h1 {
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+p.text-secondary {
+  font-size: 0.95rem;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: rgba(22, 27, 34, 0.95);
+  border: 1px solid #30363d;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+/* ===== HEADINGS ===== */
+h4, h5 {
+  color: #f0f6fc;
+  font-weight: 600;
+}
+
+/* ===== FORM INPUTS ===== */
+.form-control,
+.form-select {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 2px rgba(88,166,255,0.25);
+  background: #0d1117;
+  color: #fff;
+}
+
+/* ===== LABEL ===== */
+.form-label {
+  font-size: 0.9rem;
+  color: #e2e8f0;   /* bright */
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ===== FILE UPLOAD ===== */
+.file-input-label {
+  background: #0d1117;
+  border: 2px dashed #30363d;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-input-label:hover {
+  border-color: #58a6ff;
+  background: rgba(88,166,255,0.08);
+  transform: scale(1.02);
+}
+
+/* ===== TABS ===== */
+.nav-tabs {
+  border-bottom: 1px solid #30363d;
+  margin-bottom: 15px;
+}
+
+.nav-tabs .nav-link {
+  color: #8b949e;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav-tabs .nav-link:hover {
+  color: #58a6ff;
+}
+
+.nav-tabs .nav-link.active {
+  background: #21262d;
+  color: #58a6ff;
+  border-radius: 10px 10px 0 0;
+}
+
+/* ===== SECTION CARD ===== */
+.section-card {
+  background: rgba(13, 17, 23, 0.9);
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  border-radius: 10px;
+  font-weight: 500;
+  padding: 10px 16px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #1f6feb;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #388bfd;
+  transform: translateY(-1px);
+}
+
+.btn-success {
+  background: #238636;
+  border: none;
+}
+
+.btn-success:hover {
+  background: #2ea043;
+  transform: translateY(-1px);
+}
+
+/* ===== MAIN CTA BUTTON ===== */
+.btn-neon {
+  background: linear-gradient(90deg, #238636, #2ea043);
+  border: none;
+  font-size: 1.05rem;
+}
+
+.btn-neon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(46,160,67,0.6);
+}
+
+/* ===== TEXTAREA ===== */
+textarea {
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 10px;
+}
+
+/* ===== SMALL IMPROVEMENTS ===== */
+input::placeholder {
+  color: #6e7681;
+  opacity: 1;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="text-center mb-5">
+    <h1 class="fw-bold text-white">Master Timetable Input</h1>
+    <p class="text-secondary">Common settings for all classes + Per-class Excel uploads</p>
+  </div>
+
+  <!-- ==================== MASTER FORM ==================== -->
+  <!-- FIX: The entire page content is now inside the form so all inputs are submitted -->
+  <form id="masterForm" action="{% url 'master_timetable' %}" method="post" enctype="multipart/form-data" onsubmit="prepareFormData(event)">
+    {% csrf_token %}
+
+    <!-- ==================== COMMON ACADEMIC STRUCTURE ==================== -->
+    <div class="card p-4 mb-4">
+      <h4 class="mb-4"><i class="bi bi-calendar3"></i> Common Academic Structure (Applies to All Classes)</h4>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <label class="form-label">Working Days (comma separated)</label>
+          <!-- FIX: All static inputs already have name= attributes, so they submit fine -->
+          <input type="text" name="working_days" class="form-control" value="Mon,Tue,Wed,Thu,Fri">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Start Time</label>
+          <input type="time" name="start_time" class="form-control" value="09:30">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">End Time</label>
+          <input type="time" name="end_time" class="form-control" value="04:00">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Lecture Duration (Hour)</label>
+          <input type="number" name="lecture_duration" class="form-control" value="1">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Lab Duration (Hour)</label>
+          <input type="number" name="lab_duration" class="form-control" value="2">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Break Duration (min)</label>
+          <input type="number" name="break_duration" class="form-control" value="30">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Break Position</label>
+          <select name="break_position" class="form-select">
+            <option value="fixed">Fixed Time</option>
+            <option value="flexible">Flexible</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== BATCH & INFRASTRUCTURE (common) ==================== -->
+    <div class="card p-4 mb-4">
+      <h5 class="mb-3"><i class="bi bi-people"></i> Batch & Infrastructure</h5>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Total Students</label>
+          <input type="number" name="total_students" class="form-control" placeholder="180" value="77">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Students per Batch</label>
+          <input type="number" name="students_per_batch" class="form-control" placeholder="60" value="26">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Total Batches</label>
+          <input type="number" name="total_batches" class="form-control" placeholder="3" value="3">
+
+        </div>
+
+        <div class="col-md-6">
+                <label class="form-label">Lab Allocation Mode</label>
+                <select name="lab_allocation_mode[]" class="form-select">
+                    <option value="parallel">Parallel (Multiple Labs Same Time)</option>
+                    <option value="sequential">Sequential (Different Slots)</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Shared Rooms Across Departments?</label>
+                <select name="shared_rooms[]" class="form-select">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Total Classrooms</label>
+                <input type="number" name="total_classrooms[]" class="form-control" placeholder="3" value="3">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Total Labs</label>
+                <input type="number" name="total_labs[]" class="form-control" placeholder="3" value="3">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Classroom Numbers (comma separated)</label> 
+                <input name="classrooms[]" class="form-control" placeholder="201,205,310">
+            </div> 
+
+            <div class="col-md-6">
+                <label class="form-label">Lab Names (comma separated)</label> 
+                <input name="labs[]" class="form-control" placeholder="Lab1,Lab2">
+            </div>
+      </div>
+    </div>
+
+    <!-- ==================== NUMBER OF CLASSES ==================== -->
+    <div class="card p-4 mb-4">
+      <h4 class="mb-4"><i class="bi bi-1-circle-fill me-2"></i> How many classes do you want?</h4>
+      <div class="row g-3 align-items-end">
+        <div class="col-md-6">
+          <label class="form-label">Number of Classes</label>
+          <input type="number" id="numClasses" class="form-control form-control-lg" min="1" value="3">
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-primary btn-lg w-100" onclick="generateClassInputs()">
+            <i class="bi bi-arrow-right-circle"></i> Generate Class Fields
+          </button>
+        </div>
+      </div>
+
+      <div id="classNameInputs" class="mt-4 row g-3"></div>
+
+      <div id="generateSectionsBtnContainer" class="mt-4 text-center" style="display:none;">
+        <button type="button" class="btn btn-success btn-lg px-5" onclick="generateClassSections()">
+          <i class="bi bi-table"></i> Generate Class Sections
+        </button>
+      </div>
+    </div>
+
+    <!-- ==================== CLASS SECTIONS (TABS) ==================== -->
+    <div id="classSections" class="mt-4"></div>
+
+    <!-- ==================== SUBMIT ==================== -->
+    <div class="text-center mt-5">
+      <button type="submit" class="btn btn-neon btn-lg px-5">
+        <i class="bi bi-magic"></i> Generate Master TimeTable
+      </button>
+    </div>
+
+  </form><!-- end #masterForm -->
+
+</div><!-- end .container -->
+
+
+<script>
+let classCount = 0;
+let classNames = [];
+
+function generateClassInputs() {
+  classCount = parseInt(document.getElementById("numClasses").value) || 1;
+  let html = '';
+  for (let i = 1; i <= classCount; i++) {
+    html += `
+      <div class="col-md-4">
+        <label class="form-label">Class ${i} Name</label>
+        <input type="text" class="form-control class-name-input" placeholder="e.g. SE-A" value="Class ${i}">
+      </div>
+    `;
+  }
+  document.getElementById("classNameInputs").innerHTML = html;
+  document.getElementById("generateSectionsBtnContainer").style.display = "block";
+}
+
+function generateClassSections() {
+  const inputs = document.querySelectorAll(".class-name-input");
+  classNames = Array.from(inputs).map((inp, i) => inp.value.trim() || `Class ${i + 1}`);
+
+  let tabHtml = '<ul class="nav nav-tabs mb-4" id="classTabs" role="tablist">';
+  let contentHtml = '<div class="tab-content" id="classTabContent">';
+
+  classNames.forEach((name, idx) => {
+    const tabId = `classTab${idx}`;
+    const active = idx === 0 ? 'active' : '';
+
+    tabHtml += `
+      <li class="nav-item">
+        <button class="nav-link ${active}" id="${tabId}-tab" data-bs-toggle="tab" data-bs-target="#${tabId}" type="button">
+          ${name}
+        </button>
+      </li>
+    `;
+
+    contentHtml += `
+      <div class="tab-pane fade ${idx === 0 ? 'show active' : ''}" id="${tabId}" data-class-index="${idx}">
+        <div class="card p-4">
+          <h5 class="mb-4"><i class="bi bi-building"></i> ${name}</h5>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <label class="form-label">Subjects Excel</label>
+              <div class="file-input-label" onclick="this.querySelector('input').click()">
+                <input type="file" class="subjectFile d-none" accept=".xlsx,.xls" data-idx="${idx}">
+                <i class="bi bi-cloud-upload fs-3 d-block mb-2 text-primary"></i>
+                <div>Click or drag Subjects Excel</div>
+              </div>
+              <!--
+                FIX: Added name="subject_json[]" so this textarea is submitted with the form.
+                     Removed readonly so the browser includes it in POST data
+                     (readonly is fine for submit, but we keep it for UX and rely on JS to fill it).
+              -->
+              <textarea
+                class="form-control mt-2 bg-dark text-light subjectJson"
+                name="subject_json[]"
+                rows="5"
+                readonly
+                placeholder="Upload Excel to auto-fill JSON here"
+              ></textarea>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Teachers Excel</label>
+              <div class="file-input-label" onclick="this.querySelector('input').click()">
+                <input type="file" class="teacherFile d-none" accept=".xlsx,.xls" data-idx="${idx}">
+                <i class="bi bi-cloud-upload fs-3 d-block mb-2 text-primary"></i>
+                <div>Click or drag Teachers Excel</div>
+              </div>
+              <!-- FIX: Same fix as above -->
+              <textarea
+                class="form-control mt-2 bg-dark text-light teacherJson"
+                name="teacher_json[]"
+                rows="5"
+                readonly
+                placeholder="Upload Excel to auto-fill JSON here"
+              ></textarea>
+            </div>
+          </div>
+
+
+           <div class="section-card">
+            <h5 class="mb-3"><i class="bi bi-people"></i> Batch Names</h5>
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label">Batch Names (optional)</label>
+                <input name="batch_names[]" class="form-control" placeholder="BatchA,BatchB,BatchC">
+            </div>
+            </div>
+          </div>
+
+
+          <!-- Special Blocks -->
+          <div class="section-card mt-3">
+            <h5 class="mb-3"><i class="bi bi-star"></i> Special Blocks</h5>
+            <label>Mini Project (Day + Duration)</label>
+            <input type="text" name="mini_project[]" class="form-control" placeholder="Thu,3">
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  tabHtml += '</ul>';
+  contentHtml += '</div>';
+  document.getElementById("classSections").innerHTML = tabHtml + contentHtml;
+
+  // Excel → JSON auto conversion
+  // Use event delegation on document to handle dynamically added file inputs
+  document.addEventListener("change", function(e) {
+    if (e.target.classList.contains("subjectFile") || e.target.classList.contains("teacherFile")) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      // FIX: Find the textarea that belongs to the same tab-pane (not just any .subjectJson)
+      const pane = e.target.closest(".tab-pane");
+      const textarea = e.target.classList.contains("subjectFile")
+        ? pane.querySelector(".subjectJson")
+        : pane.querySelector(".teacherJson");
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const data = new Uint8Array(evt.target.result);
+        const workbook = XLSX.read(data, { type: "array" });
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        const jsonData = XLSX.utils.sheet_to_json(sheet);
+        textarea.value = JSON.stringify(jsonData, null, 2);
+      };
+      reader.readAsArrayBuffer(file);
+    }
+  });
+}
+
+/**
+ * FIX: Called on form submit.
+ * Injects hidden inputs for class_name[] into the form so the view receives them.
+ * The subject_json[] and teacher_json[] textareas already have name attributes and
+ * will be submitted automatically by the browser.
+ */
+function prepareFormData(event) {
+  const form = document.getElementById("masterForm");
+
+  // Remove any previously injected hidden class_name inputs to avoid duplicates
+  form.querySelectorAll('input[name="class_name[]"]').forEach(el => el.remove());
+
+  // Get current class name values from the visible inputs
+  const nameInputs = document.querySelectorAll(".class-name-input");
+  if (nameInputs.length === 0) {
+    event.preventDefault();
+    alert("Please generate class sections first before submitting.");
+    return;
+  }
+
+  nameInputs.forEach(inp => {
+    const hidden = document.createElement("input");
+    hidden.type = "hidden";
+    hidden.name = "class_name[]";
+    hidden.value = inp.value.trim() || "Unnamed Class";
+    form.appendChild(hidden);
+  });
+
+  // Allow form to submit normally
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+ 
